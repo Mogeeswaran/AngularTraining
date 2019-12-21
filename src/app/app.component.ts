@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
+import { CebComponent } from './ceb/ceb.component';
 
 // @Component is 'Decorator' connects the files, which is a function
 @Component({
@@ -39,5 +40,17 @@ export class AppComponent {
     console.log('Inside on ReportGeneratedHandelr');
     console.log(event);
     this.dirName =event;    
+  }
+
+  // @ViewChild Related 
+  @ViewChild(CebComponent, { static: true}) cebData;
+
+  constructor(){
+    console.log('constructor');
+  }
+
+  ngOnInit(){
+    console.log('noOnInit');
+    console.log(this.cebData);
   }
 }
